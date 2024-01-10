@@ -19,3 +19,7 @@
   color: var(--c-text-body);
   background: var(--c-bg-qua);
 }
+
+.u-gray-filter {
+  filter: grayscale(100%);
+}

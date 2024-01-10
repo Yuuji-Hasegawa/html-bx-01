@@ -54,7 +54,8 @@
   color: var(--c-text-description);
 }
 
-.u-text-brand {
+.u-text-brand,
+.u-first-color::first-letter {
   color: var(--c-brand-middle);
 }
 
@@ -85,6 +86,20 @@
   text-decoration-color: rgba(var(--c-warning) 0.4);
   text-underline-offset: -0.2em;
   text-decoration-skip-ink: none;
+}
+
+.u-heading-line {
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: calc(-1 * setting.f-space-px(s));
+    left: 50%;
+    width: calc(100% - setting.f-space-px(2xl));
+    min-width: setting.f-space-px(2xl);
+    height: setting.f-space-px(2xs);
+    transform: translateX(-50%);
+    background: var(--c-brand-middle);
+  }
 }
 
 .u-text-trim {

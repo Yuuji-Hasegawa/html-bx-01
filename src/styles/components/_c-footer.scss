@@ -4,3 +4,6 @@
   position: sticky;
   top: 100svh;
 }
+.c-ft-item {
+  min-width: min(setting.breakpoints(unders), calc(50% - (setting.f-space-px(m) * 0.5)));
+}

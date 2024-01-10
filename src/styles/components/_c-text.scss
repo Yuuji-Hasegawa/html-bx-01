@@ -63,7 +63,6 @@
   }
 }
 
-.c-gnav-link,
 .c-tel-link,
 .c-entry a,
 .c-text-link {
@@ -81,6 +80,17 @@
 
   &:visited {
     color: var(--c-text-visited);
+  }
+}
+
+.c-text-link {
+  &--current,
+  &--footer {
+    color: currentColor;
+  }
+  &--footer {
+    display: block;
+    padding: setting.f-space-px(m) 0;
   }
 }
 

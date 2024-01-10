@@ -3,7 +3,6 @@
 @use "sass:map";
 
 .c-header {
-  position: relative;
   display: flex;
   align-items: center;
   padding-top: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m));
@@ -11,24 +10,13 @@
 }
 
 .c-logo-label {
-  &--header {
+  &--header,
+  &--footer {
     font-size: clamp(
       map.get(setting.$fontRemSize, 2xl),
       (setting.breakpoints(overm)),
       map.get(setting.$fontRemSize, 3xl)
     );
-  }
-
-  &--footer {
-    font-size: clamp(map.get(setting.$fontRemSize, l), (setting.breakpoints(overm)), map.get(setting.$fontRemSize, xl));
-  }
-}
-
-.c-pc-nav {
-  margin-left: auto;
-
-  @include tool.max-screen(setting.$underm) {
-    display: none;
   }
 }
 
@@ -74,44 +62,63 @@
 }
 
 .c-gnav {
+  background: var(--c-bg-secondary);
+  @include tool.min-screen(setting.$breakm) {
+    padding-right: clamp(
+      clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
+      setting.breakpoints(overs),
+      clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
+    );
+    padding-left: clamp(
+      clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
+      setting.breakpoints(overs),
+      clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
+    );
+  }
   @include tool.max-screen(setting.$underm) {
+    padding-left: 0;
+    padding-right: 0;
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 9999;
     display: none;
     width: 100%;
-    padding-right: clamp(
-      clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
-      setting.breakpoints(overs),
-      clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
-    );
-    padding-bottom: setting.f-space-px(l);
-    padding-left: clamp(
-      clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
-      setting.breakpoints(overs),
-      clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
-    );
-    background: var(--c-bg-qua);
-
     &--is-open {
       display: block;
     }
-
-    &-item {
-      width: 100%;
-    }
   }
-
-  @include tool.min-screen(setting.$breakm) {
-    margin-left: auto;
+  &-item {
+    border-style: solid;
+    border-color: var(--c-bg-qua);
+    border-width: clamp(0px, setting.breakpoints(underm), 1px) 0 0 clamp(0px, setting.breakpoints(overm), 1px);
+    &:first-of-type {
+      border-top-width: 0px;
+    }
+    &:last-of-type {
+      border-right-width: clamp(0px, setting.breakpoints(overm), 1px);
+    }
   }
 
   &-link {
     color: currentcolor;
-
+    display: block;
+    @include tool.min-screen(setting.$breakm) {
+      text-align: center;
+    }
     @include tool.max-screen(setting.$underm) {
-      display: block;
+      padding-right: clamp(setting.f-space-px(m), setting.breakpoints(overs), setting.f-space-px(xl));
+      padding-left: clamp(setting.f-space-px(m), setting.breakpoints(overs), setting.f-space-px(xl));
+    }
+    transition: all 0.25s ease;
+    &--is-current {
+      color: var(--c-text-on-fill);
+      background-color: var(--c-button-normal);
+    }
+    &:hover,
+    &:focus {
+      color: var(--c-text-on-fill);
+      background-color: var(--c-text-hover);
     }
   }
 }
