@@ -89,16 +89,16 @@
 }
 
 .u-heading-line {
-  &:after {
-    content: "";
+  &::after {
     position: absolute;
     bottom: calc(-1 * setting.f-space-px(s));
     left: 50%;
     width: calc(100% - setting.f-space-px(2xl));
     min-width: setting.f-space-px(2xl);
     height: setting.f-space-px(2xs);
-    transform: translateX(-50%);
+    content: "";
     background: var(--c-brand-middle);
+    transform: translateX(-50%);
   }
 }
 

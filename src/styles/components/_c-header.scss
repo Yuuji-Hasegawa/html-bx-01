@@ -63,6 +63,7 @@
 
 .c-gnav {
   background: var(--c-bg-secondary);
+
   @include tool.min-screen(setting.$breakm) {
     padding-right: clamp(
       clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
@@ -75,46 +76,55 @@
       clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
     );
   }
+
   @include tool.max-screen(setting.$underm) {
-    padding-left: 0;
-    padding-right: 0;
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 9999;
     display: none;
     width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+
     &--is-open {
       display: block;
     }
   }
+
   &-item {
-    border-style: solid;
     border-color: var(--c-bg-qua);
+    border-style: solid;
     border-width: clamp(0px, setting.breakpoints(underm), 1px) 0 0 clamp(0px, setting.breakpoints(overm), 1px);
+
     &:first-of-type {
-      border-top-width: 0px;
+      border-top-width: 0;
     }
+
     &:last-of-type {
       border-right-width: clamp(0px, setting.breakpoints(overm), 1px);
     }
   }
 
   &-link {
-    color: currentcolor;
     display: block;
+    color: currentcolor;
+    transition: all 0.25s ease;
+
     @include tool.min-screen(setting.$breakm) {
       text-align: center;
     }
+
     @include tool.max-screen(setting.$underm) {
       padding-right: clamp(setting.f-space-px(m), setting.breakpoints(overs), setting.f-space-px(xl));
       padding-left: clamp(setting.f-space-px(m), setting.breakpoints(overs), setting.f-space-px(xl));
     }
-    transition: all 0.25s ease;
+
     &--is-current {
       color: var(--c-text-on-fill);
       background-color: var(--c-button-normal);
     }
+
     &:hover,
     &:focus {
       color: var(--c-text-on-fill);

@@ -83,15 +83,14 @@
   }
 }
 
-.c-text-link {
-  &--current,
-  &--footer {
-    color: currentColor;
-  }
-  &--footer {
-    display: block;
-    padding: setting.f-space-px(m) 0;
-  }
+.c-text-link--current,
+.c-text-link--footer {
+  color: currentcolor;
+}
+
+.c-text-link--footer {
+  display: block;
+  padding: setting.f-space-px(m) 0;
 }
 
 .c-entry a,

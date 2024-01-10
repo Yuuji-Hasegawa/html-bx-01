@@ -106,11 +106,13 @@
     margin-top: setting.f-space-rem(m);
   }
 }
+
 .c-entry h2 {
   border-bottom: solid setting.f-space-rem(2xs) var(--c-brand-middle);
 }
+
 .c-entry h3 {
+  padding: setting.f-space-rem(xs) setting.f-space-rem(s);
   color: var(--c-text-on-fill);
   background-color: var(--c-button-normal);
-  padding: setting.f-space-rem(xs) setting.f-space-rem(s);
 }
